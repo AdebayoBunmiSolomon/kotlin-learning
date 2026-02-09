@@ -56,7 +56,7 @@ fun Greeting(name: String) {
     Icon(
         imageVector = Icons.Default.Add,
         contentDescription = null,
-        tint = Color.Blue
+        tint = Color.Green
     )
 
     //to add image to an android app
