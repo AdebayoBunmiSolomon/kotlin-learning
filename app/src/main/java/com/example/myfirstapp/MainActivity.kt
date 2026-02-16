@@ -1,38 +1,25 @@
 package com.example.myfirstapp
 
-import android.R
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import android.util.Log
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBarsPadding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-//import androidx.compose.ui.tooling.preview.Preview
 import com.example.myfirstapp.ui.theme.MyFirstAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -56,37 +43,66 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-    Column(
-        modifier = Modifier.fillMaxSize()
-//            .background(color = Color.Green)
-            .padding(10.dp)
-    ) {
-        //    using for loop and understanding how it works
-        for (i in 1..10) {
+    LazyColumn(modifier = Modifier.fillMaxSize()) {
+        items(count = 50) {
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .fillMaxSize()
                     .padding(vertical = 10.dp)
                     .clickable (
                         enabled = true,
                         onClickLabel = "Hello"
                     ) {
                         val logMsg: String = "Hello"
-//                        print("Hello, this is me ooo")
                         Log.d("Tag 1", logMsg)
                     }
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
-                    contentDescription = "hello"
+                    contentDescription = "hello",
+//                    modifier = Modifier.size(20.dp)
                 )
                 Text(
-                    text = "Hello my icon"
+                    text = "Hello my icon",
+//                    Modifier.size(size = 40.dp)
                 )
             }
-       }
+        }
     }
+
+//    this is for columns ordinarily
+//    Column(
+//        modifier = Modifier.fillMaxSize()
+////            .background(color = Color.Green)
+//            .padding(10.dp)
+//    ) {
+//        //    using for loop and understanding how it works
+//        for (i in 1..10) {
+//            Row(
+//                horizontalArrangement = Arrangement.SpaceBetween,
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .padding(vertical = 10.dp)
+//                    .clickable (
+//                        enabled = true,
+//                        onClickLabel = "Hello"
+//                    ) {
+//                        val logMsg: String = "Hello"
+////                        print("Hello, this is me ooo")
+//                        Log.d("Tag 1", logMsg)
+//                    }
+//            ) {
+//                Icon(
+//                    imageVector = Icons.Default.Add,
+//                    contentDescription = "hello"
+//                )
+//                Text(
+//                    text = "Hello my icon"
+//                )
+//            }
+//       }
+//    }
 
     //using conditional statement
 // if (name.length > 5){
